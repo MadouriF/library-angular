@@ -1,0 +1,5 @@
+<ng-container *ngFor="let item of readersList$ |async ">
+    <app-reader-card [readerCard]="item"></app-reader-card>
+</ng-container>
+
+<button mat-raised-button (click)="onCreateReader()"> Créer </button>

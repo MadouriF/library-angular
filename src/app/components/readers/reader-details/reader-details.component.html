@@ -1,0 +1,15 @@
+<mat-card *ngIf="reader$ | async as reader">
+    <mat-card-header>
+        <h1> {{reader.lastName | uppercase}} {{reader.firstName | titlecase}} </h1>
+    </mat-card-header>
+    <mat-card-content>
+        <p> {{reader.mail}} </p>
+        <p> {{reader.phoneNumber}} </p>
+        <p>{{reader.address.appartment}} rue {{reader.address.street | titlecase}}, {{reader.address.city |titlecase }}</p>
+        <p>{{reader.address.zipCode}} {{reader.address.country | uppercase}} </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="onBackToReaders()"> Retourner à la liste </button>
+        <button mat-raised-button (click)="onUpdateReaders(reader.address.id)"> Modifier </button>
+    </mat-card-actions>
+</mat-card>

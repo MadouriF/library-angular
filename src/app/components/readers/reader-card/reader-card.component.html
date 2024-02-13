@@ -1,0 +1,9 @@
+<mat-card>
+    <mat-card-header>
+        <h1> {{readerCard.lastName | uppercase}} {{readerCard.firstName | titlecase}} </h1>
+    </mat-card-header>
+    <mat-card-actions>
+        <button mat-raised-button (click)="onDetailsReader()"> Details </button>
+        <button mat-raised-button (click)="onDeleteReader()"> Supprimer </button>
+    </mat-card-actions>
+</mat-card>
