@@ -1,0 +1,11 @@
+<div class="container">
+    <h1>Modifier un emprunt</h1>
+    <form class="loanForm" method="post" [formGroup]="updateLoanForm" (ngSubmit)="updateLoan()">
+        <mat-form-field appearance="fill">
+            <mat-label>Date de début</mat-label>
+            <input type="date" matInput formControlName="startDate">
+        </mat-form-field>
+        <button mat-raised-button type="submit">Modifier</button>
+    </form>
+    <p id="message"></p>
+</div>

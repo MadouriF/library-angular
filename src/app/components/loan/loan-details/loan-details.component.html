@@ -1,0 +1,16 @@
+<div class="container">
+    <button mat-raised-button color="primary" (click)="show()">Détails</button>
+    <button mat-raised-button color="primary" (click)="update(loan.id)">Modifier</button>
+    <button *ngIf="loan.endDate == null" mat-raised-button color="primary" (click)="endLoan()">Rendre le livre</button>
+    <div class="details" *ngIf="collapseDetails">
+        <p><span class="label">Date de début :</span> {{loan.startDate | date:"dd/MM/yyyy"}}</p>
+        <p *ngIf="loan.endDate != null"><span class="label">Date de fin :</span> {{loan.endDate | date:"dd/MM/yyyy"}}</p>
+        <p *ngIf="loan.endDate == null"><span class="label">Emprunt en cours</span></p>
+        <p><span class="label">Emprunté par :</span> {{loan.reader.firstName}} {{ loan.reader.lastName}}</p>
+        <p><span class="label">Mail du lecteur :</span> {{loan.reader.mail}}</p>
+        <p><span class="label">Adresse du lecteur :</span>{{loan.reader.address.appartment}} {{loan.reader.address.street}}, {{loan.reader.address.city}} ({{loan.reader.address.zipCode}}), {{loan.reader.address.country}}</p>
+        <p><span class="label">Livre emprunté :</span> {{loan.book.title}}</p>
+        <p><span class="label">Auteur du livre :</span> {{loan.book.writer.firstName}} {{loan.book.writer.lastName}}</p>
+        <p><span class="label">Domaine du livre :</span> {{loan.book.domain.name}}</p>
+    </div>
+</div>

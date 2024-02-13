@@ -1,0 +1,20 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.label {
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+button {
+    margin-bottom: 20px;
+}
+
+.details {
+    background-color: #ece8f4;
+    padding: 20px;
+}

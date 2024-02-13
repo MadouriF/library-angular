@@ -1,0 +1,20 @@
+<div class="container">
+    <h1>Tous les emprunts</h1>
+    <a [routerLink]="['/loan/create']">Emprunter</a>
+    <div *ngIf="loans$ | async as loans; else noLoans"> 
+    <mat-list *ngFor="let loan of loans">
+        <mat-list-item>{{loan.book.title}}, 
+            de {{loan.book.writer.firstName}} {{loan.book.writer.lastName}}, 
+            le {{loan.startDate | date:"dd/MM/yyyy"}} 
+            <span *ngIf="loan.endDate != null">, rendu le {{loan.endDate | date:"dd/MM/yyyy"}}</span>
+            <span *ngIf="loan.endDate == null"> (emprunt en cours)</span>
+        </mat-list-item>
+        <app-loan-details [loan]="loan"></app-loan-details>
+    </mat-list>
+</div>
+
+<ng-template #noLoans>
+    <div>
+      <span>Il n'y a pas d'emprunt</span>
+    </div>
+</ng-template>

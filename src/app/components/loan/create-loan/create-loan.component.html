@@ -1,0 +1,20 @@
+<div class="container">
+    <h1>Emprunter un livre</h1>
+    <form class="loanForm" method="post" [formGroup]="loanForm" (ngSubmit)="createLoan()">
+        <mat-form-field appearance="fill">
+            <mat-label>Adresse mail</mat-label>
+            <input matInput type="email" name="mail" formControlName="mail">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Livre à emprunter</mat-label>
+            <input matInput type="text" name="title" formControlName="title">
+        </mat-form-field>
+        <!-- <mat-label>Choisir un livre</mat-label>
+        <mat-select formControlName="title">
+            <mat-option disabled>Choisir un livre</mat-option>
+            <mat-option *ngFor = "let book of books" value="book.title">{{book.title}} de {{book.writer.firstname}} {{book.writer.lastname}}</mat-option>
+        </mat-select> -->
+        <button mat-raised-button type="submit">Emprunter</button>
+    </form>
+    <p id="message"></p>
+</div>
