@@ -7,7 +7,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { Book } from '../../../models/book';
 import { Observable } from 'rxjs';
-import { BookService } from '../../../services/book/book.service';
+import { BookService } from '../../../services/book.service';
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 
 @Component({

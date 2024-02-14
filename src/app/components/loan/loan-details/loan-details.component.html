@@ -12,7 +12,7 @@
         <p><span class="label">Mail du lecteur :</span> {{loan.reader.mail}}</p>
         <p><span class="label">Adresse du lecteur :</span>{{loan.reader.address.appartment}} {{loan.reader.address.street}}, {{loan.reader.address.city}} ({{loan.reader.address.zipCode}}), {{loan.reader.address.country}}</p>
         <p><span class="label">Livre emprunté :</span> {{loan.book.title}}</p>
-        <p><span class="label">Auteur du livre :</span> {{loan.book.writer.firstName}} {{loan.book.writer.lastName}}</p>
-        <p><span class="label">Domaine du livre :</span> {{loan.book.domain.name}}</p>
+        <p><span class="label">Auteur du livre :</span> {{loan.book.writer?.firstName}} {{loan.book.writer?.lastName}}</p>
+        <p><span class="label">Domaine du livre :</span> {{loan.book.domain?.name}}</p>
     </div>
 </div>

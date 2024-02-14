@@ -6,7 +6,7 @@ import { MatCard, MatCardHeader, MatCardContent, MatCardTitle, MatCardSubtitle, 
 import { MatIcon } from "@angular/material/icon";
 import { CommonModule } from '@angular/common';
 import { BookDetailsComponent } from '../book-details/book-details.component';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
@@ -32,5 +32,9 @@ export class BookCardComponent {
 
   @Input() book!: Book;
 
-  constructor (private bookService: BookService) {}
+  constructor (private bookService: BookService, private _router : Router) {}
+
+  loanBook(){
+    this._router.navigateByUrl("loan/create")
+  }
 }

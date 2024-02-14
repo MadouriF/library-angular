@@ -9,7 +9,7 @@
 
   <app-book-details [book]="book"></app-book-details>
   <div>
-    <button mat-raised-button color="primary">Emprunter ce livre</button>
+    <button mat-raised-button color="primary" (click)="loanBook()">Emprunter ce livre</button>
     <button mat-raised-button color="primary">Supprimer ce livre</button>
   </div>
 </mat-card>

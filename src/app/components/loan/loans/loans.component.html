@@ -13,7 +13,7 @@
         <div *ngIf="loans$ | async as loans; else noLoans"> 
         <mat-list *ngFor="let loan of loans">
             <mat-list-item>{{loan.book.title}}, 
-                de {{loan.book.writer.firstName}} {{loan.book.writer.lastName}}, 
+                de {{loan.book.writer?.firstName}} {{loan.book.writer?.lastName}}, 
                 le {{loan.startDate | date:"dd/MM/yyyy"}} 
                 <span *ngIf="loan.endDate != null">, rendu le {{loan.endDate | date:"dd/MM/yyyy"}}</span>
                 <span *ngIf="loan.endDate == null"> (emprunt en cours)</span>
@@ -27,7 +27,7 @@
         <div *ngIf="currentLoans$ | async as loans; else noLoans"> 
         <mat-list *ngFor="let loan of loans">
             <mat-list-item>{{loan.book.title}}, 
-                de {{loan.book.writer.firstName}} {{loan.book.writer.lastName}}, 
+                de {{loan.book.writer?.firstName}} {{loan.book.writer?.lastName}}, 
                 le {{loan.startDate | date:"dd/MM/yyyy"}}
                 <span> (emprunt en cours)</span>
             </mat-list-item>
@@ -40,7 +40,7 @@
         <div *ngIf="finishedLoans$ | async as loans; else noLoans"> 
         <mat-list *ngFor="let loan of loans">
             <mat-list-item>{{loan.book.title}}, 
-                de {{loan.book.writer.firstName}} {{loan.book.writer.lastName}}, 
+                de {{loan.book.writer?.firstName}} {{loan.book.writer?.lastName}}, 
                 le {{loan.startDate | date:"dd/MM/yyyy"}} 
                 <span>, rendu le {{loan.endDate | date:"dd/MM/yyyy"}}</span>
             </mat-list-item>

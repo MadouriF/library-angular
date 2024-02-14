@@ -14,7 +14,7 @@ import {MatDatepickerIntl, MatDatepickerModule} from '@angular/material/datepick
 import {provideMomentDateAdapter} from '@angular/material-moment-adapter';
 import 'moment/locale/fr';
 import {DateAdapter, MAT_DATE_LOCALE} from '@angular/material/core';
-import { BookService } from '../../../services/book/book.service';
+import { BookService } from '../../../services/book.service';
 import { Book } from '../../../models/book';
 import {MatSelectModule} from '@angular/material/select';
 
