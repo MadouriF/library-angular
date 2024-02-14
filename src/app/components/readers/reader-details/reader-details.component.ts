@@ -34,4 +34,8 @@ export class ReaderDetailsComponent implements OnInit {
   onUpdateReaders(addressId : number) : void {
     this.router.navigateByUrl(`readers/update/${this.readerId}/${addressId}`)
   }
+
+  onChangingAddress() :void {
+    this.router.navigateByUrl(`readers/updateAddress/${this.readerId}`)
+  }
 }

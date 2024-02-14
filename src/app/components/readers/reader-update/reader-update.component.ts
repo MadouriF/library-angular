@@ -6,6 +6,8 @@ import { ReadersServiceService } from '../../../services/readers-service.service
 import { ActivatedRoute, Router } from '@angular/router';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { Observable } from 'rxjs';
+import { Reader } from '../../../models/reader';
 
 @Component({
     selector: 'app-reader-update',
@@ -19,6 +21,7 @@ export class ReaderUpdateComponent implements OnInit {
     addressForm! : FormGroup;
     readerId! : number;
     addressId! : number;
+    reader$! : Observable<Reader>
 
 
     constructor(private formBuilder : FormBuilder, private readerService : ReadersServiceService, private route : ActivatedRoute, private router : Router){}
@@ -27,6 +30,8 @@ export class ReaderUpdateComponent implements OnInit {
 
         this.readerId = this.route.snapshot.params['id'];
         this.addressId = this.route.snapshot.params['idAddress']
+
+        this.reader$ = this.readerService.getOneReader(this.readerId)
 
             this.readerForm = this.formBuilder.group({
             id : [this.readerId],
@@ -46,15 +51,10 @@ export class ReaderUpdateComponent implements OnInit {
         {
             updateOn : 'blur'
         });
-
-
-
     }
     
     onUpdate() : void {
-        console.log(this.readerForm.value);
-        
         this.readerService.updateReader(this.readerForm.value, this.readerId).subscribe();
-        setTimeout(() => this.router.navigateByUrl('readers'), 2000); 
+        setTimeout(() => this.router.navigateByUrl(`readers/${this.readerId}`), 2000); 
     }
 }

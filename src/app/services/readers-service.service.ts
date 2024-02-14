@@ -30,4 +30,8 @@ export class ReadersServiceService {
   public updateReader(formValue : Reader, id : number) : Observable<Reader> {
     return this.http.put<Reader>(`${this.baseUrl}/Readers/${id}`, formValue)
   }
+
+  public updateReaderAddress(formValue : Reader, id : number) : Observable<Reader> {
+    return this.http.put<Reader>(`${this.baseUrl}/Readers/Address/${id}`, formValue)
+  }
 }

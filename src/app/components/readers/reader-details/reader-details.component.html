@@ -9,7 +9,8 @@
         <p>{{reader.address.zipCode}} {{reader.address.country | uppercase}} </p>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-raised-button (click)="onBackToReaders()"> Retourner à la liste </button>
+        <button mat-raised-button (click)="onChangingAddress()"> Déclarer un changement d'adresse </button>
         <button mat-raised-button (click)="onUpdateReaders(reader.address.id)"> Modifier </button>
+        <button mat-raised-button (click)="onBackToReaders()"> Retourner à la liste </button>
     </mat-card-actions>
 </mat-card>
