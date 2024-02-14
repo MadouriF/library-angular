@@ -12,9 +12,17 @@
 
 button {
     margin-bottom: 20px;
+    margin-right: 10px;
 }
 
 .details {
     background-color: #ece8f4;
     padding: 20px;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

@@ -5,15 +5,18 @@
             <mat-label>Adresse mail</mat-label>
             <input matInput type="email" name="mail" formControlName="mail">
         </mat-form-field>
-        <mat-form-field appearance="fill">
+        <!-- <mat-form-field appearance="fill">
             <mat-label>Livre à emprunter</mat-label>
             <input matInput type="text" name="title" formControlName="title">
-        </mat-form-field>
-        <!-- <mat-label>Choisir un livre</mat-label>
-        <mat-select formControlName="title">
-            <mat-option disabled>Choisir un livre</mat-option>
-            <mat-option *ngFor = "let book of books" value="book.title">{{book.title}} de {{book.writer.firstname}} {{book.writer.lastname}}</mat-option>
-        </mat-select> -->
+        </mat-form-field> -->
+        <div *ngIf="books$ | async as books">
+            <mat-form-field appearance="fill">
+                <mat-label>Choisir un livre</mat-label>
+                <mat-select formControlName="title">
+                    <mat-option *ngFor="let book of books" [value]="book.title">{{book.title}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
         <button mat-raised-button type="submit">Emprunter</button>
     </form>
     <p id="message"></p>

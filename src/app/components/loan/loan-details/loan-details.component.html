@@ -1,7 +1,9 @@
 <div class="container">
-    <button mat-raised-button color="primary" (click)="show()">Détails</button>
-    <button mat-raised-button color="primary" (click)="update(loan.id)">Modifier</button>
-    <button *ngIf="loan.endDate == null" mat-raised-button color="primary" (click)="endLoan()">Rendre le livre</button>
+    <div class="btns">
+        <button mat-raised-button color="primary" (click)="show()">Détails</button>
+        <button mat-raised-button color="primary" (click)="update(loan.id)">Modifier</button>
+        <button *ngIf="loan.endDate == null" mat-raised-button color="primary" (click)="endLoan()">Rendre le livre</button>
+    </div>
     <div class="details" *ngIf="collapseDetails">
         <p><span class="label">Date de début :</span> {{loan.startDate | date:"dd/MM/yyyy"}}</p>
         <p *ngIf="loan.endDate != null"><span class="label">Date de fin :</span> {{loan.endDate | date:"dd/MM/yyyy"}}</p>

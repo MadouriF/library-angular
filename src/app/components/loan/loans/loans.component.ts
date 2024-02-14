@@ -11,11 +11,14 @@ import { LoanDetailsComponent } from '../loan-details/loan-details.component';
 import { UpdateLoanComponent } from '../update-loan/update-loan.component';
 import { RouterLink } from '@angular/router';
 import { CreateLoanComponent } from '../create-loan/create-loan.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-loans',
   standalone: true,
-  imports: [AsyncPipe, NgFor, NgIf, MatListModule, DatePipe, LoanDetailsComponent, MatCardModule, RouterLink, CreateLoanComponent],
+  imports: [AsyncPipe, NgFor, NgIf, MatListModule, DatePipe, LoanDetailsComponent, MatCardModule, RouterLink, CreateLoanComponent, MatFormFieldModule,
+    MatSelectModule,],
   providers : [
     {provide: LOCALE_ID, useValue: 'fr-FR'}
   ],
@@ -24,7 +27,10 @@ import { CreateLoanComponent } from '../create-loan/create-loan.component';
 })
 export class LoansComponent{
 
-  loans$ : Observable<Loan[]> = this._loanService.getLoans();
+  loans$ : Observable<Loan[]> = this._loanService.getLoans()
+  currentLoans$ : Observable<Loan[]> = this._loanService.getCurrentLoans()
+  finishedLoans$ : Observable<Loan[]> = this._loanService.getFinishedLoans()
+  sort : string = "ALL"
 
   constructor(private _loanService : LoanService){
     registerLocaleData(fr.default)

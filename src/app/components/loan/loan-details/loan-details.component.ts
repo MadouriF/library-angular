@@ -41,9 +41,7 @@ export class LoanDetailsComponent {
   endLoan(){
     this._loanService.endLoan(this.loan).subscribe({
       next : (response : any) => {
-        if (response.status == 202){
-          location.reload()
-        }
+          window.location.reload()
       },
       error : err => {
         console.log(err);

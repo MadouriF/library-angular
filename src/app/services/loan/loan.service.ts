@@ -32,5 +32,24 @@ export class LoanService {
   endLoan(loan : Loan){
     return this._http.put(`${this.url}/end/${loan.id}`, loan)
   }
+
+  updateLoan(id :number, startDate : Date, endDate : Date, mail : string, title : string): Observable<any>{
+    let body = {
+      id : id,
+      startDate : startDate,
+      endDate : endDate,
+      mail : mail,
+      title : title
+    }
+    return this._http.put(`${this.url}/${id}`, body)
+  }
+
+  getCurrentLoans() : Observable<Loan[]> {
+    return this._http.get<Loan[]>(this.url+"/current");
+  }
+
+  getFinishedLoans() : Observable<Loan[]> {
+    return this._http.get<Loan[]>(this.url+"/finished");
+  }
   
 }

@@ -6,24 +6,27 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import {MatSelectModule} from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { Book } from '../../../models/book';
+import { Observable } from 'rxjs';
+import { BookService } from '../../../services/book/book.service';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-create-loan',
   standalone: true,
-  imports: [MatInputModule, MatFormFieldModule, FormsModule, MatButtonModule, ReactiveFormsModule, MatSelectModule],
+  imports: [AsyncPipe, MatInputModule, NgIf, NgFor, MatFormFieldModule, FormsModule, MatButtonModule, ReactiveFormsModule, MatSelectModule],
   templateUrl: './create-loan.component.html',
   styleUrl: './create-loan.component.css'
 })
 export class CreateLoanComponent {
 
   startDate! : Date
-  books! : Book[]
+  books$ : Observable<Book[]> = this._bookService.getAll()
   loanForm = new FormGroup({
     mail : new FormControl(''),
     title : new FormControl('')
   })
 
-  constructor(private _loanService : LoanService){}
+  constructor(private _loanService : LoanService, private _bookService : BookService){}
 
   createLoan(){
     let p = document.getElementById("message")
