@@ -1,0 +1,48 @@
+<div class="container">
+    <h1>Modifier un emprunt</h1>
+    <div *ngIf="loan">
+        <h2>Début de l'emprunt : {{loan.startDate | date:"dd/MM/yyyy"}} </h2>
+        <h2 *ngIf="loan.endDate != null">Fin de l'emprunt : {{loan.endDate | date:"dd/MM/yyyy"}}</h2>
+        <h2>Livre emprunté : {{loan.book.title}}</h2>
+        <form class="loanForm" method="post" [formGroup]="updateLoanForm" (ngSubmit)="updateLoan()">
+            <div class="dates">
+                <mat-form-field>
+                    <mat-label>Date de début</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="startDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field *ngIf="loan.endDate != null">
+                    <mat-label>Date de fin</mat-label>
+                    <input matInput [matDatepicker]="picker2" formControlName="endDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2 [startAt]="startDate"></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="reader">
+                <mat-form-field appearance="fill">
+                    <mat-label>Prénom de l'emprunteur</mat-label>
+                    <input matInput type="text" name="firstname" formControlName="readerFirstName">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Nom de l'emprunteur</mat-label>
+                    <input matInput type="text" name="lastname" formControlName="readerLastName">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>E-mail de l'emprunteur</mat-label>
+                    <input matInput type="text" name="mail" formControlName="readerMail">
+                </mat-form-field>
+                <div *ngIf="books$ | async as books">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Livre emprunté</mat-label>
+                        <mat-select formControlName="bookTitle">
+                            <mat-option *ngFor="let book of books" [value]="book.title">{{book.title}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <button mat-raised-button type="submit" color="primary">Modifier</button>
+        </form>
+        <p id="message"></p>
+    </div>
+</div>
