@@ -1,0 +1,12 @@
+<mat-card-actions>
+    <button mat-raised-button color="primary" (click)="displayDetails()">
+      <mat-icon>visibility</mat-icon>
+      Details
+    </button>
+</mat-card-actions>
+
+<div *ngIf="showDetails">
+    <mat-card-subtitle>Domaine : {{book.domain?.name}}</mat-card-subtitle>
+    <mat-card-content>Description : {{book.description}}</mat-card-content>
+    <mat-card-content>Nombre de pages : {{book.pagesNumber}}</mat-card-content>
+</div>

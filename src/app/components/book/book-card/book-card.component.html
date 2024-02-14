@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ book.title }}</mat-card-title>
+    <mat-card-subtitle>Auteur : {{ book.writer?.firstName }} {{ book.writer?.lastName }}</mat-card-subtitle
+    >
+  </mat-card-header>
+
+  <mat-card-content>Etat : {{ book.state }}</mat-card-content>
+
+  <app-book-details [book]="book"></app-book-details>
+  <div>
+    <button mat-raised-button color="primary">Emprunter ce livre</button>
+    <button mat-raised-button color="primary">Supprimer ce livre</button>
+  </div>
+</mat-card>
