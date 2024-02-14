@@ -1,52 +1,4 @@
-<!-- <h1>Create a new book !</h1>
-
-<form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm.value)">
-  <mat-form-field>
-    <mat-label>Title</mat-label>
-    <input matInput type="text" ngModel name="title" />
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Description</mat-label>
-    <textarea matInput type="text" ngModel name="description"></textarea>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Number of pages</mat-label>
-    <input matInput type="number" ngModel name="pagesNumber" min="1" />
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>State</mat-label>
-    <mat-select ngModel name="state">
-      <mat-option value="0">Available</mat-option>
-      <mat-option value="1">Loaned</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Writer</mat-label>
-    <mat-select ngModel name="writer">
-      <div *ngFor="let writer of writers">
-        <mat-option [value]="writer.id"> {{writer.firstName}} {{writer.lastName}} </mat-option>
-      </div>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Domain</mat-label>
-    <mat-select ngModel name="domain">
-      <div *ngFor="let domain of domains">
-        <mat-option [value]="domain.id">{{domain.name}}</mat-option>
-      </div>
-    </mat-select>
-  </mat-form-field>
-
-  <button mat-raised-button color="primary" type="submit">Create Book</button>
-</form> -->
-
-
-<h1>Create a new book !</h1>
+<h1 class="main-content">Create a new book !</h1>
 
 <form [formGroup]="bookForm">
   <mat-form-field>
@@ -93,4 +45,4 @@
   <button mat-raised-button color="primary" type="submit" (click)="onSubmit()" [disabled]="bookForm.invalid">Create Book</button>
 </form>
 
-<button mat-raised-button color="primary" (click)="onViewBooks()">Retour</button>
+<button class="main-content" mat-raised-button color="primary" (click)="onViewBooks()">Retour</button>

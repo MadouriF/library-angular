@@ -2,3 +2,12 @@ div {
     display: flex;
     align-items: center;
 }
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    max-width: 800px;
+    padding: 20px;
+    box-sizing: border-box;
+}
