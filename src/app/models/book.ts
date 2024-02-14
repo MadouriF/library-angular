@@ -8,7 +8,7 @@ export interface Book {
     description : string
     pagesNumber : number
     state : number
-    writer : Writer
-    domain : Domain 
+    writer: Writer | undefined;
+    domain: Domain | undefined;
     loans : Loan[]
 }
