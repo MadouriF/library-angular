@@ -1,0 +1,48 @@
+<h1> Formulaire de modification de l'utilisateur </h1>
+
+
+<mat-card *ngIf="reader$ | async as reader" >
+    <mat-card class="form" [formGroup]="readerForm" >
+        <mat-form-field appearance="fill">
+            <mat-label> Nom : </mat-label>
+            <input matInput formControlName="lastName" ngModel="{{reader.lastName}}">
+        </mat-form-field>    
+        <mat-form-field appearance="fill">
+            <mat-label> Prenom :</mat-label>
+            <input matInput formControlName="firstName" ngModel="{{reader.firstName}}">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label> eMail :</mat-label>
+            <input matInput formControlName="mail" ngModel="{{reader.mail}}">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label> Tel :</mat-label>
+            <input matInput formControlName="phoneNumber" ngModel="{{reader.phoneNumber}}">
+        </mat-form-field>
+    </mat-card>
+
+        
+        <mat-card class="form" [formGroup]="addressForm">
+            <mat-form-field appearance="fill">
+                <mat-label> Numero : </mat-label>
+                <input matInput formControlName="appartment" ngModel="{{reader.address.appartment}}">
+            </mat-form-field> 
+            <mat-form-field appearance="fill">
+                <mat-label> Rue :</mat-label>
+                <input matInput formControlName="street" ngModel="{{reader.address.street}}">
+            </mat-form-field> 
+            <mat-form-field appearance="fill">
+                <mat-label> Ville :</mat-label>
+                <input matInput formControlName="city" ngModel="{{reader.address.city}}">
+            </mat-form-field> 
+            <mat-form-field appearance="fill">
+                <mat-label> Pays</mat-label>
+                <input matInput formControlName="country"  ngModel="{{reader.address.country}}">
+            </mat-form-field> 
+            <mat-form-field appearance="fill">
+                <mat-label> Code Postal </mat-label>
+                <input matInput formControlName="zipCode" ngModel="{{reader.address.zipCode}}">
+            </mat-form-field> 
+            <button type="submit" (click)="onUpdate()" [disabled]="readerForm.invalid"> Valider </button>
+        </mat-card>
+</mat-card>

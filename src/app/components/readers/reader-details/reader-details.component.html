@@ -1,0 +1,20 @@
+<mat-card *ngIf="reader$ | async as reader">
+    <mat-card-header>
+        <h1> {{reader.lastName | uppercase}} {{reader.firstName | titlecase}} </h1>
+    </mat-card-header>
+    <mat-card-content>
+        <div>
+            <p> {{reader.mail}} </p>
+            <p> {{reader.phoneNumber}} </p>
+        </div>
+        <div>
+            <p>{{reader.address.appartment}} {{reader.address.street | titlecase}}, {{reader.address.city |titlecase }}</p>
+            <p>{{reader.address.zipCode}} {{reader.address.country | uppercase}} </p>
+        </div>      
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="onChangingAddress()"> Déclarer un changement d'adresse </button>
+        <button mat-raised-button (click)="onUpdateReaders(reader.address.id)"> Modifier </button>
+        <button mat-raised-button (click)="onBackToReaders()"> Retourner à la liste </button>
+    </mat-card-actions>
+</mat-card>

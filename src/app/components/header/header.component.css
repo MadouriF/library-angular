@@ -1,6 +1,33 @@
 a {
-    margin-left: 10px;
-    color : white;
-    font-size: 14px;
+    color: aliceblue;
+    margin-right: 3%;
+    border-right: solid 1px aliceblue;
+    border-left: solid 1px aliceblue;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.appTitle{
+    text-decoration: none;
+    font-size: larger;
+    border: rgb(244, 247, 75) solid 1px;
+    padding: 10px;
+    background-color: #f4f3f5;
+    border-radius: 20%;
+    text-align: start;
+    width: 7%;
+    height: 40%;
+    color: rgb(48, 0, 68);
+}
+
+
+mat-toolbar{
+    height: 10%;
+}
+
+img{
+    height: 100%;
+    width: 30%;
+    background-color: #967b9e;
 }
 
