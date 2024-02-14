@@ -1,0 +1,25 @@
+.form{
+    display: flex;
+    align-items: center;
+    margin-left: 38%;
+    margin-right: 38%;
+    margin-bottom: 2%;
+    padding: 20px;
+    background-color: rgb(228, 221, 199);
+    box-shadow: 3px 5px 11px 4px rgba(102, 102, 102, 0.35);
+}
+
+mat-form-field{
+    display: flex;
+}
+
+h1{
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+button{
+    width: 30%;
+    font-size: large;
+}

@@ -3,10 +3,14 @@
         <h1> {{reader.lastName | uppercase}} {{reader.firstName | titlecase}} </h1>
     </mat-card-header>
     <mat-card-content>
-        <p> {{reader.mail}} </p>
-        <p> {{reader.phoneNumber}} </p>
-        <p>{{reader.address.appartment}} rue {{reader.address.street | titlecase}}, {{reader.address.city |titlecase }}</p>
-        <p>{{reader.address.zipCode}} {{reader.address.country | uppercase}} </p>
+        <div>
+            <p> {{reader.mail}} </p>
+            <p> {{reader.phoneNumber}} </p>
+        </div>
+        <div>
+            <p>{{reader.address.appartment}} {{reader.address.street | titlecase}}, {{reader.address.city |titlecase }}</p>
+            <p>{{reader.address.zipCode}} {{reader.address.country | uppercase}} </p>
+        </div>      
     </mat-card-content>
     <mat-card-actions>
         <button mat-raised-button (click)="onChangingAddress()"> Déclarer un changement d'adresse </button>

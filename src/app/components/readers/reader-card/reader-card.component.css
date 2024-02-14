@@ -1,0 +1,23 @@
+mat-card{
+    display: flex;
+    align-items: center;
+    background-color: rgb(228, 221, 199);
+    margin-top: 20px;
+    margin-right: 35%;
+    margin-left: 35%;
+    box-shadow: 3px 5px 11px 4px rgba(102, 102, 102, 0.35);
+}
+
+mat-card-header{
+    border-bottom: solid 1px black;
+}
+
+mat-card-actions{
+    display: flex;
+    padding: 20px;
+}
+
+button{
+    margin-left: 10px;
+}
+

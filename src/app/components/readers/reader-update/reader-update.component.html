@@ -1,5 +1,8 @@
+<h1> Formulaire de modification de l'utilisateur </h1>
+
+
 <mat-card *ngIf="reader$ | async as reader" >
-    <div [formGroup]="readerForm" >
+    <mat-card class="form" [formGroup]="readerForm" >
         <mat-form-field appearance="fill">
             <mat-label> Nom : </mat-label>
             <input matInput formControlName="lastName" ngModel="{{reader.lastName}}">
@@ -16,9 +19,10 @@
             <mat-label> Tel :</mat-label>
             <input matInput formControlName="phoneNumber" ngModel="{{reader.phoneNumber}}">
         </mat-form-field>
+    </mat-card>
 
         
-        <div [formGroup]="addressForm">
+        <mat-card class="form" [formGroup]="addressForm">
             <mat-form-field appearance="fill">
                 <mat-label> Numero : </mat-label>
                 <input matInput formControlName="appartment" ngModel="{{reader.address.appartment}}">
@@ -40,6 +44,5 @@
                 <input matInput formControlName="zipCode" ngModel="{{reader.address.zipCode}}">
             </mat-form-field> 
             <button type="submit" (click)="onUpdate()" [disabled]="readerForm.invalid"> Valider </button>
-        </div>
-    </div>
+        </mat-card>
 </mat-card>

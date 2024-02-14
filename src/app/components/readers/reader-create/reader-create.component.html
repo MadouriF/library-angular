@@ -1,44 +1,54 @@
+<h1> Formulaire de création nouvel utilisateur </h1>
 
-<div [formGroup]="readerForm" >
-    <mat-form-field appearance="fill">
+<mat-card class="form" [formGroup]="readerForm" >
+    <div>
+        <mat-form-field appearance="fill">
         <mat-label> Nom : </mat-label>
         <input matInput placeholder="Dupont" formControlName="lastName" >
-    </mat-form-field>    
-    <mat-form-field appearance="fill">
-        <mat-label> Prenom :</mat-label>
-        <input matInput placeholder="Dupont" formControlName="firstName">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label> eMail :</mat-label>
-        <input matInput formControlName="mail" placeholder="email@email.com">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label> Tel :</mat-label>
-        <input matInput formControlName="phoneNumber" placeholder="06XXXXXXXX">
-    </mat-form-field>
-
-    
-    <div [formGroup]="addressForm">
+        </mat-form-field>    
         <mat-form-field appearance="fill">
-            <mat-label> Numero : </mat-label>
-            <input matInput formControlName="appartment" placeholder="1">
-        </mat-form-field> 
-        <mat-form-field appearance="fill">
-            <mat-label> Rue :</mat-label>
-            <input matInput formControlName="street" placeholder="Rue de la Paix">
-        </mat-form-field> 
-        <mat-form-field appearance="fill">
-            <mat-label> Ville :</mat-label>
-            <input matInput formControlName="city" placeholder="Paris">
-        </mat-form-field> 
-        <mat-form-field appearance="fill">
-            <mat-label> Pays</mat-label>
-            <input matInput formControlName="country" placeholder="France" >
-        </mat-form-field> 
-        <mat-form-field appearance="fill">
-            <mat-label> Code Postal </mat-label>
-            <input matInput formControlName="zipCode" placeholder="75001">
-        </mat-form-field> 
-        <button type="submit" (click)="onSubmit()" [disabled]="readerForm.invalid"> Valider </button>
+            <mat-label> Prenom :</mat-label>
+            <input matInput placeholder="Dupont" formControlName="firstName">
+        </mat-form-field>
     </div>
-</div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label> eMail :</mat-label>
+            <input matInput formControlName="mail" placeholder="email@email.com">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label> Tel :</mat-label>
+            <input matInput formControlName="phoneNumber" placeholder="06XXXXXXXX">
+        </mat-form-field>
+    </div>
+</mat-card>
+    
+<mat-card class="form">
+    <div [formGroup]="addressForm">
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label> Numero : </mat-label>
+                <input matInput formControlName="appartment" placeholder="1">
+            </mat-form-field> 
+            <mat-form-field appearance="fill">
+                <mat-label> Rue :</mat-label>
+                <input matInput formControlName="street" placeholder="Rue de la Paix">
+            </mat-form-field> 
+            <mat-form-field appearance="fill">
+                <mat-label> Ville :</mat-label>
+                <input matInput formControlName="city" placeholder="Paris">
+            </mat-form-field> 
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label> Pays</mat-label>
+                <input matInput formControlName="country" placeholder="France" >
+            </mat-form-field> 
+            <mat-form-field appearance="fill">
+                <mat-label> Code Postal </mat-label>
+                <input matInput formControlName="zipCode" placeholder="75001">
+            </mat-form-field> 
+        </div>
+    </div>
+    <button type="submit" (click)="onSubmit()" [disabled]="readerForm.invalid"> Valider </button>
+</mat-card>
