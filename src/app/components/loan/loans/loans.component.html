@@ -1,0 +1,57 @@
+<div class="container">
+    <h1>Tous les emprunts</h1>
+    <a [routerLink]="['/loan/create']">Emprunter</a>
+    <mat-form-field>
+        <mat-label>Affichage :</mat-label>
+        <mat-select [(value)] = sort>
+            <mat-option value="ALL">Tous les emprunts</mat-option>
+            <mat-option value="CUR">Emprunts en cours</mat-option>
+            <mat-option value="FIN">Emprunts terminés</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <div *ngIf = "sort == 'ALL'">
+        <div *ngIf="loans$ | async as loans; else noLoans"> 
+        <mat-list *ngFor="let loan of loans">
+            <mat-list-item>{{loan.book.title}}, 
+                de {{loan.book.writer.firstName}} {{loan.book.writer.lastName}}, 
+                le {{loan.startDate | date:"dd/MM/yyyy"}} 
+                <span *ngIf="loan.endDate != null">, rendu le {{loan.endDate | date:"dd/MM/yyyy"}}</span>
+                <span *ngIf="loan.endDate == null"> (emprunt en cours)</span>
+            </mat-list-item>
+            <app-loan-details [loan]="loan"></app-loan-details>
+            <mat-divider></mat-divider>
+        </mat-list>
+        </div>
+    </div>
+    <div *ngIf = "sort == 'CUR'">
+        <div *ngIf="currentLoans$ | async as loans; else noLoans"> 
+        <mat-list *ngFor="let loan of loans">
+            <mat-list-item>{{loan.book.title}}, 
+                de {{loan.book.writer.firstName}} {{loan.book.writer.lastName}}, 
+                le {{loan.startDate | date:"dd/MM/yyyy"}}
+                <span> (emprunt en cours)</span>
+            </mat-list-item>
+            <app-loan-details [loan]="loan"></app-loan-details>
+            <mat-divider></mat-divider>
+        </mat-list>
+        </div>
+    </div>
+    <div *ngIf = "sort == 'FIN'">
+        <div *ngIf="finishedLoans$ | async as loans; else noLoans"> 
+        <mat-list *ngFor="let loan of loans">
+            <mat-list-item>{{loan.book.title}}, 
+                de {{loan.book.writer.firstName}} {{loan.book.writer.lastName}}, 
+                le {{loan.startDate | date:"dd/MM/yyyy"}} 
+                <span>, rendu le {{loan.endDate | date:"dd/MM/yyyy"}}</span>
+            </mat-list-item>
+            <app-loan-details [loan]="loan"></app-loan-details>
+            <mat-divider></mat-divider>
+        </mat-list>
+        </div>
+    </div>
+
+<ng-template #noLoans>
+    <div>
+      <span>Il n'y a pas d'emprunt</span>
+    </div>
+</ng-template>
