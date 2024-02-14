@@ -1,0 +1,7 @@
+<h1>Liste des livres</h1>
+
+<button mat-raised-button color="primary" (click)="onViewCreate()">Créer un livre</button>
+
+<div *ngFor="let book of books">
+  <app-book-card [book]="book"></app-book-card>
+</div>
